@@ -1,0 +1,25 @@
+{# templates/login.html #}
+{% extends 'base.html' %}
+
+{% block title %}Вход — KnowledgeFlow{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h1>Авторизация</h1>
+  <form method="post" class="auth-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_username">Имя пользователя</label>
+      {{ form.username }}
+    </div>
+    <div class="form-group">
+      <label for="id_password">Пароль</label>
+      {{ form.password }}
+    </div>
+    <button type="submit" class="btn primary full-width">Войти</button>
+  </form>
+  <p class="form-footer">
+    Ещё нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a>
+  </p>
+</div>
+{% endblock %}
