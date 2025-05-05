@@ -1,0 +1,381 @@
+/* static/css/new_style.css */
+
+/* --- CSS-переменные для темы --- */
+:root {
+    --clr-bg: #eef2f5;
+    --clr-sidebar: #1f2a44;
+    --clr-accent: #ff6b6b;
+    --clr-text: #333;
+    --clr-link-hover: #ffa8a8;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    height: 100vh;
+    background: var(--clr-bg);
+    color: var(--clr-text);
+  }
+  
+  /* --- Сайдбар --- */
+  .sidebar {
+    width: 220px;
+    background: var(--clr-sidebar);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  
+  .sidebar .brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--clr-accent);
+  }
+  
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .sidebar a,
+  .link-button {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  
+  .sidebar a:hover,
+  .link-button:hover {
+    color: var(--clr-link-hover);
+  }
+  
+  .link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+  }
+  
+  /* --- Основной контент --- */
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  
+  /* --- Сообщения --- */
+  .messages {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  
+  .messages li {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .messages .success {
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  .messages .error {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  .messages .info {
+    background: #d1ecf1;
+    color: #0c5460;
+  }
+  
+  /* --- Адаптив для узких экранов --- */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      height: 100%;
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    body {
+      flex-direction: column;
+    }
+    .main-content {
+      padding: 1rem;
+    }
+  }
+  
+
+  /* --- Hero-секция на главной --- */
+.hero {
+    background: var(--clr-sidebar);
+    color: #fff;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero-title span {
+    color: var(--clr-accent);
+  }
+  .hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    opacity: 0.85;
+  }
+  
+  /* --- Кнопки действия --- */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+    margin: 0 0.5rem;
+  }
+  
+  .btn.primary {
+    background: var(--clr-accent);
+    color: #fff;
+  }
+  .btn.primary:hover {
+    background: var(--clr-link-hover);
+  }
+  
+  .btn.secondary {
+    background: #fff;
+    color: var(--clr-sidebar);
+    border: 2px solid var(--clr-accent);
+  }
+  .btn.secondary:hover {
+    background: var(--clr-accent);
+    color: #fff;
+  }
+  
+
+
+  /* --- Форма авторизации --- */
+.form-container {
+    max-width: 400px;
+    margin: 3rem auto;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-container h1 {
+    font-size: 1.75rem;
+    color: var(--clr-sidebar);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .auth-form .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--clr-text);
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  .auth-form input:focus {
+    outline: none;
+    border-color: var(--clr-accent);
+  }
+  
+  .btn.full-width {
+    width: 100%;
+  }
+  
+  .form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .form-footer a {
+    color: var(--clr-accent);
+    text-decoration: none;
+  }
+  
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+  
+
+
+  /* --- Страница профиля --- */
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .profile-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 360px;
+    width: 100%;
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 4px solid var(--clr-accent);
+  }
+  
+  .avatar.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eceff4;
+    color: #8f9bb3;
+    font-size: 3rem;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    border: 4px solid var(--clr-accent);
+  }
+  
+  .username {
+    font-size: 1.5rem;
+    color: var(--clr-sidebar);
+    margin-bottom: 0.5rem;
+  }
+  
+  .role,
+  .email {
+    font-size: 1rem;
+    color: var(--clr-text);
+    margin-bottom: 0.5rem;
+  }
+  
+  .email a {
+    color: var(--clr-accent);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .email a:hover {
+    color: var(--clr-link-hover);
+  }
+  
+
+  /* --- Селект для роли --- */
+.auth-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .auth-form select:focus {
+    outline: none;
+    border-color: var(--clr-accent);
+  }
+  
+  /* (Остальные стили для .form-container, .auth-form, .form-group,
+     .auth-form input, .btn.primary, .full-width, .form-footer уже 
+     добавлены ранее и будут применяться и к этой странице.) */
+  
+
+/* --- Страница «Расписание» --- */
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--clr-sidebar);
+    text-align: center;
+  }
+  
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .schedule-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .schedule-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+  
+  .schedule-subject {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--clr-accent);
+  }
+  
+  .schedule-label {
+    font-weight: 600;
+    color: var(--clr-sidebar);
+  }
+  
+  .no-schedule {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--clr-text);
+  }
+  
+  @media (max-width: 640px) {
+    .schedule-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

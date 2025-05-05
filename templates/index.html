@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная — KnowledgeFlow{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      Добро пожаловать в <span>KnowledgeFlow</span>
+    </h1>
+    <p class="hero-subtitle">
+      Ваш современный электронный журнал для учёбы
+    </p>
+    <div class="hero-actions">
+      <a href="{% url 'login' %}" class="btn primary">Войти</a>
+      <a href="{% url 'register' %}" class="btn secondary">Регистрация</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

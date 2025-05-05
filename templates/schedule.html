@@ -1,0 +1,23 @@
+{# templates/schedule.html #}
+{% extends 'base.html' %}
+
+{% block title %}Расписание — KnowledgeFlow{% endblock %}
+
+{% block content %}
+  <h1 class="page-title">Расписание занятий</h1>
+
+  <div class="schedule-grid">
+    {% if schedule %}
+      {% for item in schedule %}
+        <div class="schedule-card">
+          <h2 class="schedule-subject">{{ item.subject.name }}</h2>
+          <p><span class="schedule-label">День:</span> {{ item.day_of_week }}</p>
+          <p><span class="schedule-label">Время:</span> {{ item.start_time }} – {{ item.end_time }}</p>
+          <p><span class="schedule-label">Преподаватель:</span> {{ item.teacher.username }}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="no-schedule">Расписание ещё не создано.</p>
+    {% endif %}
+  </div>
+{% endblock %}

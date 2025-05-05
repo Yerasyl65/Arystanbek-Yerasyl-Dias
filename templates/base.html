@@ -1,0 +1,46 @@
+<!-- templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}KnowledgeFlow{% endblock %}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
+  <link rel="stylesheet" href="{% static 'css/new_style.css' %}">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="brand">KnowledgeFlow</div>
+    <nav>
+      <a href="{% url 'home' %}">Главная</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'schedule' %}">Расписание</a>
+        <a href="{% url 'grades' %}">Оценки</a>
+        <a href="{% url 'homework' %}">Домашка</a>
+        <a href="{% url 'profile' %}">Профиль</a>
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button class="link-button">Выйти</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}">Вход</a>
+        <a href="{% url 'register' %}">Регистрация</a>
+      {% endif %}
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    {% if messages %}
+      <ul class="messages">
+        {% for msg in messages %}
+          <li class="{{ msg.tags }}">{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

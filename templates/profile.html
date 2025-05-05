@@ -1,0 +1,19 @@
+{# templates/profile.html #}
+{% extends 'base.html' %}
+
+{% block title %}Профиль — KnowledgeFlow{% endblock %}
+
+{% block content %}
+<div class="profile-page">
+  <div class="profile-card">
+    {% if user.photo %}
+      <img src="{{ user.photo.url }}" alt="Фото профиля" class="avatar">
+    {% else %}
+      <div class="avatar placeholder">👤</div>
+    {% endif %}
+    <h2 class="username">{{ user.username }}</h2>
+    <p class="role">Роль: <span>{{ user.get_role_display }}</span></p>
+    <p class="email">Email: <a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+  </div>
+</div>
+{% endblock %}
