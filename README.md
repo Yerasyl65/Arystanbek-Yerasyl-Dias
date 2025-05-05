@@ -1,1 +1,1 @@
-# Arystanbek-Yerasyl-Dias
+# Arystanbek-Yerasyl-Dias Электронный Дневник
